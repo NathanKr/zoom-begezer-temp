@@ -1,0 +1,18 @@
+.InstructorData{
+    background-color: #f9ffc6;
+    width: 60%;
+    border: 1px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 55px);
+}
+
+.InstructorData strong{
+    cursor: pointer;
+    color: darkred;
+}

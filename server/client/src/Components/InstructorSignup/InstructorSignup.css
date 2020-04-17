@@ -1,0 +1,8 @@
+.InstructorSignup{
+    width: 80%;
+    margin: 0 auto;
+    height: 83.3vh;
+}
+.InstructorSignup form{
+    direction: rtl;
+}
