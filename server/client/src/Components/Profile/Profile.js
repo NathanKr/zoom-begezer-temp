@@ -63,7 +63,7 @@ const Profile = () => {
         <h2>טלפון: {userData.phone}</h2>
         <h2>ישוב: {userData.location}</h2>
         <h2>דוא"ל: {userData.email}</h2>
-        <h2>סוג המשתמש: {user["http://role"]}</h2>
+        <h2>סוג המשתמש: {user["https://zoom-begezer.co.il/role"]}</h2>
         <h3>קצת עליי: {userData.about}</h3>
       </div>
     </div>

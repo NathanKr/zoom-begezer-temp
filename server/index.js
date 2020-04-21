@@ -25,7 +25,7 @@ mongoose.connect(MongoURI,
 
 const authConfig = {
         domain: "zoom-begezer.eu.auth0.com",
-        audience: "http://"
+        audience: "https://zoom-begezer.co.il/"
 };
 // Define middleware that validates incoming bearer tokens
 // using JWKS from dev-3yr8u6u0.auth0.com

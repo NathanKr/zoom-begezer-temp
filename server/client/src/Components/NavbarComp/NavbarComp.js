@@ -23,7 +23,7 @@ function NavbarComp() {
                       </Nav>
                       <Nav className="mr-auto sideNav">
                       <Nav.Link 
-                      onClick={() => loginWithRedirect({redirect_uri: 'http://profile'})}>
+                      onClick={() => loginWithRedirect({redirect_uri: 'https://zoom-begezer.co.il/profile'})}>
                           הרשמה - התחברות מדריכ/ה
                           </Nav.Link>
                          </Nav>
