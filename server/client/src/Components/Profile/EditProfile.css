@@ -1,0 +1,27 @@
+.EditProfile{
+    width: 70%;
+    min-height: 90vh;
+    margin: 0 auto;
+    direction: rtl;
+
+}
+.EditProfile input#formGridAbout{
+height: 100px;
+}
+.EditProfile label{
+        display: inline-block;
+        margin-bottom: .5rem;
+        background-color: #0000006e;
+        width: 100%;
+        margin: 10px 0 0 0;
+        color: white;
+        font-size: 1.3em;
+        text-shadow: 0 0 3px black;
+}
+
+.EditProfile .btn-success {
+    color: #fff;
+    margin: 3px;
+    background-color: #28a745;
+    border-color: #28a745;
+}

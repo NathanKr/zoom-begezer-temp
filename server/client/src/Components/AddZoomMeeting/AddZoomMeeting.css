@@ -1,0 +1,17 @@
+.AddZoomMeeting{
+    width: 80%;
+    margin: 0 auto;
+    height: 83.3vh;
+}
+.AddZoomMeeting form{
+    direction: rtl;
+}
+.AddZoomMeeting label{
+    display: inline-block;
+    margin-bottom: .5rem;
+    background-color: #0000006e;
+    width: 100%;
+    margin: 10px 0 0 0;
+    color: white;
+    font-size: 1.3em;
+}

@@ -8,27 +8,27 @@ import './Broadcast.css'
 
 
 function Broadcast() {
+    const todayInNum = new Date().getDay()+1;
     const [eventsByDate, setEventsByDate] = useState([]);
-    const [day, setDay] = useState(1) // 0 = yesterday 1 = today 2 = tommorow
+    const [day, setDay] = useState(todayInNum) // 1 = Sunday 2 = Monday ... 6 = friday
     const [instructorData, setInstructorData] = useState('');
     const [instructorDataFlag, setInstructorDataFlag] = useToggle(false);
-
-    const yesterdayDate = () =>{
-      return new Date(new Date().setDate(new Date().getDate()-1)).toDateString()
+  
+    const daysOftheWeekDate = (num = 0) =>{
+      const curr = new Date();
+      const first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week 
+      return new Date(curr.setDate(first + num)).toDateString();
     }
-    const tomorrowDate = () =>{
-        return new Date(new Date().setDate(new Date().getDate()+1)).toDateString()
-     }
-    
+
      const jsonData ='./data/Events.json';
 
         const changePage = (prevOrnext) => {
             if(prevOrnext === "next"){
-                if (day <= 2) {
+                if (day <= 5) {
                  setDay(day+1) 
                 }
             }else{
-                if (day > 0) {
+                if (day > 1) {
                     setDay(day-1) 
                    }
             }
@@ -40,7 +40,6 @@ function Broadcast() {
          .then(res =>{
              if(res.status === 200)
              {
-              console.log(res.data)
               setInstructorData(res.data[0]);
               setInstructorDataFlag();
             }
@@ -52,22 +51,34 @@ function Broadcast() {
 
 
 useEffect(() => {
-    
     const displayEventsByDate = (allEvents) =>{
         const selectedDay = Number(day);
         if (selectedDay === 1) {
-            let filtterdEvents = allEvents.filter(e => e.date === new Date().toDateString())
+            let filtterdEvents = allEvents.filter(e => e.date === daysOftheWeekDate(0))
             setEventsByDate(filtterdEvents)
         }
-        if (selectedDay === 0) {
-            let filtterdEvents = allEvents.filter(e => e.date === yesterdayDate())
+        if (selectedDay === 2) {
+            let filtterdEvents = allEvents.filter(e => e.date === daysOftheWeekDate(1))
             setEventsByDate(filtterdEvents) 
         }
 
-        if (selectedDay === 2) {
-            let filtterdEvents = allEvents.filter(e => e.date === tomorrowDate())
+        if (selectedDay === 3) {
+            let filtterdEvents = allEvents.filter(e => e.date === daysOftheWeekDate(2))
             setEventsByDate(filtterdEvents)
         }
+        if (selectedDay === 4) {
+            let filtterdEvents = allEvents.filter(e => e.date === daysOftheWeekDate(3))
+            setEventsByDate(filtterdEvents)
+        }
+        if (selectedDay === 5) {
+            let filtterdEvents = allEvents.filter(e => e.date === daysOftheWeekDate(4))
+            setEventsByDate(filtterdEvents)
+        }
+        if (selectedDay === 6) {
+            let filtterdEvents = allEvents.filter(e => e.date === daysOftheWeekDate(5))
+            setEventsByDate(filtterdEvents)
+        }
+   
     }
 
     const readJsonData =  () =>{
@@ -99,8 +110,11 @@ useEffect(() => {
         /> :''}
 
                 <h1>לוח שידורים</h1>
-            {/* How many days to display here ? */}
-            <i className='fas fa-arrow-left' 
+            {/* <button>לוח א</button>
+            <button>לוח ב</button> */}
+ 
+         <div className="Broadcast_table_wraper">
+         <i className='fas fa-arrow-left' 
             id="next"
             onClick={(e)=>changePage(e.target.id)}
             >  
@@ -114,17 +128,17 @@ useEffect(() => {
               day={day} 
               setDay={setDay}
               />
-
-                <Table striped bordered hover>
+              
+                <Table  bordered >
                     <thead>{/* // move table to diffrebt comp */}
                         <tr>
                             <th>שעה</th>
                             <th>נושא</th>
-                            <th>מגיש</th>
-                            <th>גילאים</th>
+                            <th>שם המפעיל</th>
+                            <th>מתאים לגיל</th>
                             <th>פעילות</th>
-                            <th>מה צריך?</th>
-                            <th>קישור</th>
+                            <th>מה להביא למפגש?</th>
+                            <th>קישור לשידור</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,12 +155,12 @@ useEffect(() => {
                          <td>{e.requierments}</td>
                          <td><a 
                          className={
-                            (Number(day) === 1) && 
-                            (Number(e.startTime.split(":")[0]) === new Date().getHours()) ? "activeLink"
+                            (Number(day) === todayInNum) && 
+                            (Number(e.startTime.split(":")[0]) == new Date().getHours()) ? "activeLink"
                             : 'disabledLink'
                            }   
                          onClick={(event) =>(
-                             (Number(day) === 1) && 
+                             (Number(day) === todayInNum) && 
                              (Number(e.startTime.split(":")[0]) === new Date().getHours())
                          )
                           ? '': event.preventDefault()}
@@ -157,6 +171,7 @@ useEffect(() => {
                      }
                     </tbody>
                 </Table>
+                </div>
         </div>
     )
 }

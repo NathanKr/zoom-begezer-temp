@@ -17,9 +17,14 @@
     font-weight: bold;
 }
 .NavbarComp  .navbar-light .navbar-nav .nav-link {
-        color: rgba(0, 0, 0, 0.5);
+        color: rgb(0, 0, 0);
         text-shadow: 1px 1px black;
         font-size: 1.2em;
+}
+
+.NavbarComp div.mr-auto.sideNav.navbar-nav{
+    justify-content: flex-end;
+    color: whitesmoke;
 }
 
 /* Media query */

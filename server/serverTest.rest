@@ -1,0 +1,76 @@
+POST http://localhost:8080/instructor-signup
+Content-Type: application/json
+
+{   
+"firstName":"tamrat",
+"lastName":"bay",
+"subject":"React",
+"location": "netanya",
+"email":"tamrat@gmail.com",
+"about":" about about about v about about about",
+"phone":"050500000"
+}
+
+###
+
+GET http://localhost:8080/instructor-signup/050500000
+###
+
+GET http://localhost:8080/zoom-event
+###
+DELETE http://localhost:8080/zoom-event/5e9daf1f15af27fd808dc0c3
+###
+
+POST http://localhost:8080/zoom-event
+Content-Type: application/json
+
+ {
+ "date":"Sat Apr 11 2020",
+ "startTime":"09:00",
+ "presentor":"אופק",
+ "presentorEmail":"test@test.com",
+ "subject":"אנגולר",
+ "activity":"עיצוב",
+ "ages":"15-45",
+ "requierments":"vsc",
+ "isBrodcast":"false"
+ }
+### 
+POST http://localhost:8080/zoom-event
+Content-Type: application/json
+
+[
+ {
+ "date":"Sat Apr 11 2020",
+ "startTime":"09:00",
+ "presentor":"חיים",
+ "presentorEmail":"test@test.com",
+ "subject":"יוגה",
+ "activity":"עיצוב",
+ "ages":"15-45",
+ "requierments":"vsc",
+ "isBrodcast":"true"
+ },
+ {
+ "date":"Sat Apr 11 2020",
+ "startTime":"09:00",
+ "presentor":"אופק",
+ "presentorEmail":"test@test.com",
+ "subject":"אנגולר",
+ "activity":"עיצוב",
+ "ages":"15-45",
+ "requierments":"vsc",
+ "isBrodcast":"false"
+ },
+ {
+ "date":"Sun Apr 01 2020",
+ "startTime":"19:00",
+ "presentor":"דוד",
+ "presentorEmail":"test@test.com",
+ "subject":"חשבון",
+ "activity":"חשבון",
+ "ages":"15-45",
+ "requierments":"vsc",
+ "isBrodcast":"false"
+ }
+]

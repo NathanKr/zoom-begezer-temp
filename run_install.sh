@@ -1,5 +1,5 @@
 #!/bin/sh
-# run one level above zoom-begezer-tempe 
+# run one level above zoom-begezer-temp 
 # assume only one process run by pm2 otherwise use process name
 # do once : NODE_ENV must be set to "production" on /etc/environment and reboot
 # do once : very the port on /etc/nginx/sites-available/default is correct 

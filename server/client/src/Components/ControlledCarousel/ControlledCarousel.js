@@ -14,39 +14,67 @@ function ControlledCarousel() {
         <Carousel.Item>
           <img
             className="d-block "
-            src="/images/caim1.jpg"
+            src="/images/caim1.jpeg"
             alt="First slide"
           />
-          <Carousel.Caption>
-            {/* <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-          </Carousel.Caption>
+          {/* <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block "
-            src="/images/caim2.jpg"
+            src="/images/caim2.jpeg"
             alt="Second slide"
           />
   
-          <Carousel.Caption>
-            {/* <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
-          </Carousel.Caption>
+          {/* <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block "
-            src="/images/caim3.jpg"
+            src="/images/caim3.jpeg"
             alt="Third slide"
           />
-  
+{/*   
           <Carousel.Caption>
-            {/* <h3>Third slide label</h3>
+            <h3>Third slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p> */}
-          </Carousel.Caption>
+            </p>
+          </Carousel.Caption> */}
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block "
+            src="/images/caim4.jpeg"
+            alt="forth slide"
+          />
+{/*   
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption> */}
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block "
+            src="/images/caim5.jpeg"
+            alt="fifth slide"
+          />
+{/*   
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption> */}
         </Carousel.Item>
       </Carousel>
     );

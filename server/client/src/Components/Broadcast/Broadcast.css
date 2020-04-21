@@ -5,16 +5,10 @@
     font-size: 1.3rem;
     min-height: 78.3vh;
 }
-.Broadcast .table-bordered {
+.Broadcast table.table-bordered {
     direction: rtl;
-    width: 90%;
     margin: 0 auto;
     box-shadow: 1px 1px 4px;
-}
-
-.Broadcast .table td{
-    padding: 1.3rem;
-    vertical-align: top;
 }
 
 .Broadcast .fas{
@@ -31,12 +25,12 @@
    
 }
 .Broadcast .fas:nth-of-type(1){
-    right: 90%;
-    top: 100px;
+    right: 96%;
+    top: 0;
 }
 .Broadcast .fas:nth-of-type(2){
-    left: 90%;
-    top: 100px;
+    left: 96%;
+    top: 0;
 }
 
 .Broadcast .table-bordered a{
@@ -65,18 +59,28 @@
     background-color: rgb(255, 255, 255);
 }
 
-.Broadcast .instructorName {
+/* .Broadcast .instructorName {
     cursor: pointer;
     color: #d1920d;
     transition: .3s all;
     font-weight: bold;
     letter-spacing: 1.6px;
-}
-.Broadcast .instructorName:hover {
+} */
+/* .Broadcast .instructorName:hover {
     box-shadow: 2px 2px 6px black;
+} */
+.Broadcast .table td {
+    padding: 1.3rem;
+    vertical-align: top;
+    background-color: whitesmoke;
 }
-
-
+.Broadcast_table_wraper {
+    height: 60vh;
+    overflow: overlay;
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+}
 
 /* Media Query Starts Here */
 @media only screen and (max-width: 1405px) {
@@ -89,14 +93,14 @@
         padding: 2px;
         border-radius: 5px;
     }
-    .Broadcast .fas:nth-of-type(2) {
+    /* .Broadcast .fas:nth-of-type(2) {
         left: 90%;
         top: 70px;
     }
     .Broadcast .fas:nth-of-type(1) {
         right: 90%;
         top: 70px;
-    }
+    } */
   }
 
   @media only screen and (max-width: 710px) {

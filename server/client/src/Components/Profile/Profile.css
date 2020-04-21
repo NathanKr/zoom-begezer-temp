@@ -1,0 +1,25 @@
+
+.Profile{
+    color: white;
+    direction: rtl;
+    min-height: 90vh;
+}
+.Profile img{
+    width: 100px;
+    margin: 15px auto;
+}
+
+.Profile button{
+    width: 200px;
+    height: 50px;
+    background-color: #f58504;
+    border: 1px black solid;
+    color: black;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+.Profile_details {
+    width: 75%;
+    margin: auto;
+    text-align: right;
+}
