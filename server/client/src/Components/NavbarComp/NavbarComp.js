@@ -23,7 +23,7 @@ function NavbarComp() {
                       </Nav>
                       <Nav className="mr-auto sideNav">
                       <Nav.Link 
-                      onClick={() => loginWithRedirect({redirect_uri: 'http://localhost:3000/profile'})}>
+                      onClick={() => loginWithRedirect({redirect_uri: 'http://profile'})}>
                           הרשמה - התחברות מדריכ/ה
                           </Nav.Link>
                          </Nav>
