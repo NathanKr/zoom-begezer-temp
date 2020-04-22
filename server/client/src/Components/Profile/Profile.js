@@ -37,6 +37,8 @@ const Profile = () => {
 
   }, [user.email , getTokenSilently,])
 
+console.log(userData);
+console.log(edit);
 
   if (loading || !user) {
     return <div>Loading...</div>;
@@ -69,7 +71,7 @@ const Profile = () => {
   }else{
     return(
       <div className="Profile">
-      <h2> . . .טוען</h2>
+      <h2> w . .טוען</h2>
     </div>
     )
   }

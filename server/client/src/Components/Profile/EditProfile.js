@@ -7,7 +7,7 @@ import { useAuth0 } from "../../react-auth0-spa";
 function EditProfile({ user, setedit, setuserData ,userData}) {
     const { getTokenSilently } = useAuth0();
     const saveInputData = (e) => instructorDetails[e.target.name] = e.target.value;
-console.log(userData);
+    userData.firstName ? console.log('edit') : console.log('add')
 
     function inputDefaultValue (key) {
         return userData[key] ? userData[key] : '' 
@@ -19,7 +19,7 @@ console.log(userData);
         location:  inputDefaultValue('location'),
         about:  inputDefaultValue('about'),
         phone:  inputDefaultValue('phone'),
-        knowZoom: inputDefaultValue('knowZoom'),
+        knowZoom: inputDefaultValue('knowZoom') || 'יש הכרות',
         age:  inputDefaultValue('age'),
         email: user.email,
     }
@@ -57,9 +57,13 @@ console.log(userData);
           }
 
           //! if userData exsist then we use Update else Add
-        userData.firstName ? updateInstructorData(): addNewInstructor() 
-            
-        setedit(false)
+          userData.firstName ? console.log('edit') : console.log('add')
+          if (userData.firstName) {
+              updateInstructorData();
+          }else{
+              addNewInstructor();
+          }
+       setedit(false)
     };
 
 
