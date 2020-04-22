@@ -12,14 +12,13 @@ import { useAuth0 } from "./react-auth0-spa";
 import history from "./utils/history";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Profile from './Components/Profile/Profile';
-import ExternalApi from './Components/ExternalApi'
 
 function App() {
 
   const { loading } = useAuth0();
   
     if (loading) {
-      return <div className="App_loading">טוען . . .</div>;
+      return <div className="App_loading">. . .טוען </div>;
     }
     
   return (
@@ -34,7 +33,6 @@ function App() {
         <Route exact path='/contactus' component={ContactUs}/>
         <Route exact path='/instructor-signup' component={InstructorSignup}/>
         <PrivateRoute exact path='/profile' component={Profile}/>
-        <PrivateRoute path="/external-api" component={ExternalApi} />
      </Switch>
      
      </Router>

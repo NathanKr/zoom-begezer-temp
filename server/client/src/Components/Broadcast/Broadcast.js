@@ -156,7 +156,7 @@ useEffect(() => {
                          <td><a 
                          className={
                             (Number(day) === todayInNum) && 
-                            (Number(e.startTime.split(":")[0]) == new Date().getHours()) ? "activeLink"
+                            (Number(e.startTime.split(":")[0]) ===new Date().getHours()) ? "activeLink"
                             : 'disabledLink'
                            }   
                          onClick={(event) =>(

@@ -4,27 +4,30 @@ import axios from 'axios';
 import './EditProfile.css'
 import { useAuth0 } from "../../react-auth0-spa";
 
-function EditProfile({ user, goBack, setuserData }) {
+function EditProfile({ user, setedit, setuserData ,userData}) {
     const { getTokenSilently } = useAuth0();
     const saveInputData = (e) => instructorDetails[e.target.name] = e.target.value;
+console.log(userData);
 
+    function inputDefaultValue (key) {
+        return userData[key] ? userData[key] : '' 
+     }
 
     let instructorDetails = {
-        firstName: '',
-        lastName: '',
-        location: '',
-        about: '',
-        phone: '',
-        knowZoom: 'יש הכרות',
-        age: '',
+        firstName: inputDefaultValue('firstName'),
+        lastName:  inputDefaultValue('lastName'),
+        location:  inputDefaultValue('location'),
+        about:  inputDefaultValue('about'),
+        phone:  inputDefaultValue('phone'),
+        knowZoom: inputDefaultValue('knowZoom'),
+        age:  inputDefaultValue('age'),
         email: user.email,
-        // phone:''
     }
 
     const onFormSubmit = (e) => {
         e.preventDefault();
 
-        const callApi = async () => {
+        const addNewInstructor = async () => {
             const token = await getTokenSilently();
             axios.post('/instructor', instructorDetails,
               { headers: { Authorization: `Bearer ${token}` } }
@@ -38,9 +41,27 @@ function EditProfile({ user, goBack, setuserData }) {
                   console.log(error);
                 });
           }
-        callApi();
-        goBack()
+        const updateInstructorData = async () => {
+            const token = await getTokenSilently();
+            axios.put(`/instructor/${userData._id}`, instructorDetails,
+              { headers: { Authorization: `Bearer ${token}` } }
+              )
+                .then((res) => {
+                  if (res.status === 200) {
+                    setuserData(res.data)
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+          }
+
+          //! if userData exsist then we use Update else Add
+        userData.firstName ? updateInstructorData(): addNewInstructor() 
+            
+        setedit(false)
     };
+
 
 
     return (
@@ -56,7 +77,9 @@ function EditProfile({ user, goBack, setuserData }) {
                             name="firstName"
                             onChange={saveInputData}
                             required
+                            defaultValue={inputDefaultValue('firstName')}
                             placeholder="שם פרטי" />
+                            
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridLastName">
@@ -66,6 +89,7 @@ function EditProfile({ user, goBack, setuserData }) {
                             onChange={saveInputData}
                             required
                             name="lastName"
+                            defaultValue={inputDefaultValue('lastName')}
                             placeholder="שם משפחה" />
                     </Form.Group>
                 </Form.Row>
@@ -77,6 +101,7 @@ function EditProfile({ user, goBack, setuserData }) {
                             onChange={saveInputData}
                             required
                             name="location"
+                            defaultValue={inputDefaultValue('location')}
                             placeholder="ישוב" />
                     </Form.Group>
 
@@ -87,6 +112,7 @@ function EditProfile({ user, goBack, setuserData }) {
                             onChange={saveInputData}
                             required
                             name="phone"
+                            defaultValue={inputDefaultValue('phone')}
                             placeholder="050000000" />
                     </Form.Group>
                 </Form.Row>
@@ -98,6 +124,7 @@ function EditProfile({ user, goBack, setuserData }) {
                             onChange={saveInputData}
                             name="age"
                             type="number"
+                            defaultValue={inputDefaultValue('age')}
                             required
                             placeholder="גיל" />
                     </Form.Group>
@@ -108,7 +135,8 @@ function EditProfile({ user, goBack, setuserData }) {
                             onChange={saveInputData}
                             name="knowZoom"
                             as="select"
-                            defaultValue="יש הכרות">
+                            defaultValue={inputDefaultValue('knowZoom')||"יש הכרות"} 
+                            >
                             <option>יש הכרות</option>
                             <option> אין הכרות</option>
                         </Form.Control>
@@ -123,6 +151,7 @@ function EditProfile({ user, goBack, setuserData }) {
                         onChange={saveInputData}
                         required
                         name="about"
+                        defaultValue={inputDefaultValue('about')}
                         placeholder=" יש לי ניסיון של 5 שנים ב..."
                     />
                 </Form.Group>
@@ -134,7 +163,7 @@ function EditProfile({ user, goBack, setuserData }) {
                     שמור
         </Button>
                 <Button
-                    onClick={goBack}
+                    onClick={()=>setedit(false)}
                     variant="success"
                 >
                     חזרה לדף הקודם

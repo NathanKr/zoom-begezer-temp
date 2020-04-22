@@ -25,7 +25,7 @@ mongoose.connect(MongoURI,
 
 const authConfig = {
         domain: "zoom-begezer.eu.auth0.com",
-        audience: "https://zoom-begezer.co.il/"
+        // audience: "http://localhost:3000"
 };
 // Define middleware that validates incoming bearer tokens
 // using JWKS from dev-3yr8u6u0.auth0.com
@@ -39,11 +39,11 @@ const checkJwt = jwt({
 });
 
 // Define an endpoint that must be called with an access token
-app.get("/api/external", checkJwt, (req, res) => {
-        res.send({
-                msg: "Your Access Token was successfully validated!"
-        });
-});
+// app.get("/api/external", checkJwt, (req, res) => {
+//         res.send({
+//                 msg: "Your Access Token was successfully validated!"
+//         });
+// });
 
 
 //! Instructor adds Zoom  meeting
@@ -55,15 +55,16 @@ app.post('/zoom-meeting',checkJwt, (req, res) => {
 app.post('/instructor',checkJwt, (req, res) => {
         Instructor.addInstructor(req,res)
 });
+//! Instructor edit Personal Detailes
+app.put('/instructor/:id',checkJwt, (req, res) => {
+        Instructor.editInstructor(req,res)
+});
 //! Instructor profile page Retrives Personal Detailes
 app.get('/instructor/:email',checkJwt, (req, res) => {
         Instructor.getInstructor(req,res)
 });
 
-// //! Add New Zoom Event  ****need to add token 
-// app.post('/zoom-event',(req, res) => {
-//         ZoomEvent.addZoomEvent(req,res)
-// });
+
 //! Add ### Array of Zoom Events ##  ****need to add token 
 app.post('/zoom-event',(req, res) => {
         ZoomEvent.addZoomEventArray(req,res)

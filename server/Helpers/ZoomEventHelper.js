@@ -4,7 +4,7 @@ const ZoomEvent = require('../models/ZoomEventModel');
 //! Need to add valiation on the serverside
 
 function addZoomEvent(req,res){
-console.log('reqBody Instractur',req.body);
+// console.log('reqBody Instractur',req.body);
 // const { firstName, lastName , email, subject, location,phone, about } = req.body
 const { 
     presentorEmail, 

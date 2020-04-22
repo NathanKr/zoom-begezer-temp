@@ -23,7 +23,7 @@ function NavbarComp() {
                       </Nav>
                       <Nav className="mr-auto sideNav">
                       <Nav.Link 
-                      onClick={() => loginWithRedirect({redirect_uri: 'https://zoom-begezer.co.il/profile'})}>
+                      onClick={() => loginWithRedirect({})}>
                           הרשמה - התחברות מדריכ/ה
                           </Nav.Link>
                          </Nav>
@@ -42,7 +42,6 @@ function NavbarComp() {
                     <Nav.Link href="/profile">פרופיל</Nav.Link>
                     {/* <Nav.Link href="/instructor-signup">הוספת שיעור</Nav.Link> */}
                     <Nav.Link href="/contactus">יצירת קשר</Nav.Link>
-                    {/* <Nav.Link href="/external-api">external-api</Nav.Link> */}
                 </Nav>
                 <Nav className="mr-auto sideNav">
                 <Nav.Link onClick={() => logout()}>התנתק/י</Nav.Link>

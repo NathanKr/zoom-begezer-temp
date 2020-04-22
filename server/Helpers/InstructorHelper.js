@@ -4,7 +4,7 @@ const Instructor = require('../models/InstructorsModel');
 //! Need to add valiation on the serverside
 
 function addInstructor(req,res){
-console.log('reqBody Instractur',req.body);
+// console.log('reqBody Instractur',req.body);
 // const { firstName, lastName , email, subject, location,phone, about } = req.body
 const { firstName, lastName , email, about, location, phone,knowZoom ,age} = req.body
 
@@ -37,6 +37,17 @@ console.log(email);
       }
     });
 }
+function editInstructor(req,res) {
+    const {id} = req.params;
+
+    Instructor.findByIdAndUpdate(id, req.body, { new: true })
+    .then(response => {
+      res.status(200).send(response);
+  })
+  .catch(err => { console.log(err); res.status(500).send(`server problem - ${err}`) })
+
+}
 
 module.exports.addInstructor = addInstructor;
 module.exports.getInstructor = getInstructor;
+module.exports.editInstructor = editInstructor;
