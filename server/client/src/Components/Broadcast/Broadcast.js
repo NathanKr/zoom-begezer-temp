@@ -35,7 +35,7 @@ function Broadcast() {
         }
 
      const getInstractorData = (phone) => {
-=         axios.get(`instructor-signup/${phone}`)
+         axios.get(`instructor-signup/${phone}`)
          .then(res =>{
              if(res.status === 200)
              {
