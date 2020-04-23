@@ -12,12 +12,10 @@ const Profile = () => {
   const [userData, setuserData] = useState({});
   const [edit, setedit] = useState(false)
 
-console.log(userData);
 
   useEffect(() => {
 
     const getUserData = async () => {
-      console.log('user.email',user.email);
       
       const token = await getTokenSilently();
       axios.get(`/instructor/${user.email}`,

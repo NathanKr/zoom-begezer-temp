@@ -7,8 +7,6 @@ import { useAuth0 } from "../../react-auth0-spa";
 function EditProfile({ user, setedit, setuserData ,userData}) {
     const { getTokenSilently } = useAuth0();
     const saveInputData = (e) => instructorDetails[e.target.name] = e.target.value;
-    userData.firstName ? console.log('edit') : console.log('add')
-
     function inputDefaultValue (key) {
         return userData[key] ? userData[key] : '' 
      }
