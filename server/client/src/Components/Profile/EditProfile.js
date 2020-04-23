@@ -150,7 +150,6 @@ function EditProfile({ user, setedit, setuserData ,userData}) {
                         as="textarea"
                         rows="5"
                         onChange={saveInputData}
-                        }
                         required
                         name="about"
                         wrap="hard"
