@@ -24,7 +24,7 @@ function NavbarComp() {
                       <Nav className="mr-auto sideNav">
                       <Nav.Link 
                       onClick={() => loginWithRedirect({})}>
-                          הרשמה - התחברות מדריכ/ה
+                          הרשמת - התחברות מדריכ/ה
                           </Nav.Link>
                          </Nav>
                   </Navbar.Collapse>

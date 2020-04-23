@@ -108,12 +108,12 @@
         padding: 1.25em 5px;
         font-size: .8em;
     }
-    .Broadcast .table{
+    /* .Broadcast .table{
         width: 95%;
     }
     .DaysNav{
         width: 95%;
-    }
+    } */
   }
   @media only screen and (max-width: 500px) {
     .Broadcast {

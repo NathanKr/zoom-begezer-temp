@@ -23,3 +23,20 @@
     margin: auto;
     text-align: right;
 }
+.Profile_details h2{
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+p.Profile_details_about{
+    white-space: pre-wrap;
+    font-size: 1.3em;
+    width: 70%;
+}
+h2.Profile_details_about{
+    text-align: center;
+    border-bottom: 2px solid;
+    width: 140px;
+    margin: 0 auto;
+    padding: 7px;
+}

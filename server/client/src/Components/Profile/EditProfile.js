@@ -7,8 +7,6 @@ import { useAuth0 } from "../../react-auth0-spa";
 function EditProfile({ user, setedit, setuserData ,userData}) {
     const { getTokenSilently } = useAuth0();
     const saveInputData = (e) => instructorDetails[e.target.name] = e.target.value;
-    userData.firstName ? console.log('edit') : console.log('add')
-
     function inputDefaultValue (key) {
         return userData[key] ? userData[key] : '' 
      }
@@ -57,7 +55,6 @@ function EditProfile({ user, setedit, setuserData ,userData}) {
           }
 
           //! if userData exsist then we use Update else Add
-          userData.firstName ? console.log('edit') : console.log('add')
           if (userData.firstName) {
               updateInstructorData();
           }else{
@@ -153,8 +150,10 @@ function EditProfile({ user, setedit, setuserData ,userData}) {
                         as="textarea"
                         rows="5"
                         onChange={saveInputData}
+                        }
                         required
                         name="about"
+                        wrap="hard"
                         defaultValue={inputDefaultValue('about')}
                         placeholder=" יש לי ניסיון של 5 שנים ב..."
                     />

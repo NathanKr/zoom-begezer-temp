@@ -26,7 +26,6 @@ const { firstName, lastName , email, about, location, phone,knowZoom ,age} = req
 
 function getInstructor(req,res) {
     const {email} = req.params;
-console.log(email);
 
     Instructor.findOne({email:email})
     .then(instructor => {
