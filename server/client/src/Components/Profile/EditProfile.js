@@ -57,7 +57,6 @@ function EditProfile({ user, setedit, setuserData ,userData}) {
           }
 
           //! if userData exsist then we use Update else Add
-          userData.firstName ? console.log('edit') : console.log('add')
           if (userData.firstName) {
               updateInstructorData();
           }else{
@@ -153,8 +152,11 @@ function EditProfile({ user, setedit, setuserData ,userData}) {
                         as="textarea"
                         rows="5"
                         onChange={saveInputData}
+                        onClick={(e) => console.log(e.target.value,instructorDetails.about)
+                        }
                         required
                         name="about"
+                        wrap="hard"
                         defaultValue={inputDefaultValue('about')}
                         placeholder=" יש לי ניסיון של 5 שנים ב..."
                     />

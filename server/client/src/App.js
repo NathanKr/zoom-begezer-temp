@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import './App.css';
 import Broadcast from './Components/Broadcast/Broadcast';
 import { Router, Route, Switch } from "react-router-dom";
@@ -15,12 +15,19 @@ import Profile from './Components/Profile/Profile';
 
 function App() {
 
-  const { loading } = useAuth0();
+  const { loading ,logout } = useAuth0();
   
-    if (loading) {
+ 
+    useEffect(() => {
+      return () => {
+       logout()        
+      }
+    }, [])
+
+   if (loading) {
       return <div className="App_loading">. . .טוען </div>;
     }
-    
+
   return (
     <div className="App">
       <Router history={history} >

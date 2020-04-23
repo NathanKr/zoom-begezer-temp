@@ -12,10 +12,13 @@ const Profile = () => {
   const [userData, setuserData] = useState({});
   const [edit, setedit] = useState(false)
 
+console.log(userData);
 
   useEffect(() => {
 
-    const callApi = async () => {
+    const getUserData = async () => {
+      console.log('user.email',user.email);
+      
       const token = await getTokenSilently();
       axios.get(`/instructor/${user.email}`,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -30,15 +33,12 @@ const Profile = () => {
           setedit(true)
         });
     }
-    callApi();
+    getUserData();
     return () => {
     }
     
 
-  }, [user.email , getTokenSilently,])
-
-console.log(userData);
-console.log(edit);
+  }, [user.email , getTokenSilently])
 
   if (loading || !user) {
     return <div>Loading...</div>;
@@ -63,15 +63,16 @@ console.log(edit);
         <h2>טלפון: {userData.phone}</h2>
         <h2>ישוב: {userData.location}</h2>
         <h2>דוא"ל: {userData.email}</h2>
-        <h2>סוג המשתמש: {user['https://zoom-begezer.co.il/role']}</h2>
-        <h3>קצת עליי: {userData.about}</h3>
+        {/* <h2>סוג המשתמש: {user['https://zoom-begezer.co.il/role']}</h2> */}
+        <h2 className="Profile_details_about">קצת עליי:</h2>
+        <p className="Profile_details_about">{userData.about}</p>
       </div>
     </div>
     )
   }else{
     return(
       <div className="Profile">
-      <h2> w . .טוען</h2>
+      <h2> . . .טוען</h2>
     </div>
     )
   }
